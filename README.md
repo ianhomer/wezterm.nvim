@@ -11,3 +11,15 @@ With [lazy.nvim](https://github.com/folke/lazy.nvim)
   'ianhomer/wezterm.nvim'
 }
 ```
+
+With [LazyVim](https://www.lazyvim.org/)
+
+```lua
+return {
+  "ianhomer/wezterm.nvim",
+  keys = function()
+    return require("wezterm").keys()
+  end,
+  opts = {},
+}
+```

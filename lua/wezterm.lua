@@ -31,14 +31,33 @@ function M.go_direction(direction)
   end
 end
 
-for key, _ in pairs(directions) do
-  vim.keymap.set("", "<c-" .. key .. ">", function()
-    M.go_direction(key)
-  end)
-  -- support ctrl arrow keys in normal an insert mode
-  vim.keymap.set({ "i", "n", "v", "x", "c" }, "<c-" .. arrows[key] .. ">", function()
-    M.go_direction(key)
-  end)
+function M.keys()
+  local keys = {}
+  for key, _ in pairs(directions) do
+    table.insert(keys, {
+      "<c-" .. key .. ">",
+      function()
+        M.go_direction(key)
+      end,
+      mode = { "n" },
+      desc = "Navigate " .. arrows[key],
+    })
+  end
+
+  return keys
+end
+
+function M.setup(opts)
+  for key, _ in pairs(directions) do
+    vim.keymap.set("", "<c-" .. key .. ">", function()
+      M.go_direction(key)
+    end)
+    -- support ctrl arrow keys in normal an insert mode
+    vim.keymap.set({ "i", "n", "v", "x", "c" }, "<c-" .. arrows[key] .. ">", function()
+      print("D" .. key)
+      M.go_direction(key)
+    end)
+  end
 end
 
 return M
