@@ -26,4 +26,4 @@ return {
 
 ## Thanks
 
-Inspiration and influence from <https://github.com/numToStr/Navigator.nvim>.
+Inspiration and influence from <https://github.com/numToStr/Navigator.nvim>, background on the WezTerm configuration documented at <https://adaptivekind.com/wezterm-terminal-config/>.
