@@ -23,3 +23,7 @@ return {
   opts = {},
 }
 ```
+
+## Thanks
+
+Inspiration and influence from <https://github.com/numToStr/Navigator.nvim>.
